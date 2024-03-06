@@ -1,9 +1,12 @@
-import supertest from 'supertest'
+// import supertest from 'supertest'
 
 describe('Beach forecast functional tests', () => {
     it('should return a forecast with just a few times', async() => {
-    //   const { body, status } = await global.testRequest.get('/forecast');
-      const { body, status } = await supertest(app).get('/forecast');
+      // Esse testRequest não existe no global. Então preciso
+      // adicionar mais um tipo para o global. 
+
+      const { body, status } = await global.testRequest.get('/forecast');
+      // const { body, status } = await supertest(app).get('/forecast');
       expect(status).toBe(200);
       // Make sure we use toEqual to check value not the object and array itself
       expect(body).toEqual([{
